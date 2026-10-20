@@ -1,5 +1,5 @@
 ---
-status: planned
+status: in-progress
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -118,12 +118,12 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] Opening `courses/` as an Obsidian vault and inserting the "course-readme" template into a new note produces the README template with today's date in `YYYY-MM-DD` format (manual check).
-- [ ] `courses/_templates/board.base.template` with `{{COURSE_FOLDER}}` replaced by a fixture folder opens in Obsidian and shows lessons in `created`, `planned`, and `implemented` columns (manual check).
-- [ ] Schema tests pass for the template, the fixture course, and each listed failure case.
-- [ ] `parseMarkdownFile`/`stringifyMarkdownFile` round-trip preserves unknown frontmatter keys and body text (test).
-- [ ] `.gitignore` excludes `courses/.obsidian/workspace.json`.
-- [ ] `npm run lint`, `npm run typecheck`, and `npm test` pass.
+- [x] Opening `courses/` as an Obsidian vault and inserting the "course-readme" template into a new note produces the README template with today's date in `YYYY-MM-DD` format (manual check).
+- [x] `courses/_templates/board.base.template` with `{{COURSE_FOLDER}}` replaced by a fixture folder opens in Obsidian and shows lessons in `created`, `planned`, and `implemented` columns (manual check).
+- [x] Schema tests pass for the template, the fixture course, and each listed failure case.
+- [x] `parseMarkdownFile`/`stringifyMarkdownFile` round-trip preserves unknown frontmatter keys and body text (test).
+- [x] `.gitignore` excludes `courses/.obsidian/workspace.json`.
+- [x] `npm run lint`, `npm run typecheck`, and `npm test` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
