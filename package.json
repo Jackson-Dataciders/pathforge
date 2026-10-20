@@ -17,6 +17,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "themes:build": "tsx scripts/build-themes.ts",
+    "validate:content": "tsx scripts/validate-content.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -56,11 +56,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `src/content/courses.test.ts` covers all listed cases and passes against `fixtures/content`.
-- [ ] `PATHFORGE_CONTENT_ROOT=fixtures/content npm run validate:content` exits 0.
-- [ ] Making the fixture's published course reference an unknown label makes `validate:content` exit non-zero and print the README path (test).
-- [ ] `ci.yml` runs `npm run validate:content`.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `src/content/courses.test.ts` covers all listed cases and passes against `fixtures/content`.
+- [x] `PATHFORGE_CONTENT_ROOT=fixtures/content npm run validate:content` exits 0.
+- [x] Making the fixture's published course reference an unknown label makes `validate:content` exit non-zero and print the README path (test).
+- [x] `ci.yml` runs `npm run validate:content`.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
