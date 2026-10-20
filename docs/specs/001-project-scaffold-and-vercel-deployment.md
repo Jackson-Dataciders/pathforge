@@ -1,5 +1,5 @@
 ---
-status: planned
+status: in-progress
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -56,14 +56,14 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `npm ci` succeeds on Node 22 from a clean checkout.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` all exit with code 0.
-- [ ] `npm run test:e2e` passes `e2e/smoke.spec.ts`, which asserts the "Pathforge" heading on `/` and that clicking "Courses" navigates to `/courses`.
-- [ ] `src/content/paths.test.ts` covers default root and `PATHFORGE_CONTENT_ROOT` override and passes.
-- [ ] `.github/workflows/ci.yml` exists and runs lint, typecheck, unit tests, build, and e2e tests.
-- [ ] `vercel.json` is valid JSON with `"framework": "nextjs"`.
-- [ ] `docs/`, `.github/agents/`, `.github/skills/`, `.github/prompts/`, and `.github/instructions/` are unchanged.
-- [ ] After the manual Vercel setup, the production URL shows the "Pathforge" home page.
+- [x] `npm ci` succeeds on Node 22 from a clean checkout.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` all exit with code 0.
+- [x] `npm run test:e2e` passes `e2e/smoke.spec.ts`, which asserts the "Pathforge" heading on `/` and that clicking "Courses" navigates to `/courses`.
+- [x] `src/content/paths.test.ts` covers default root and `PATHFORGE_CONTENT_ROOT` override and passes.
+- [x] `.github/workflows/ci.yml` exists and runs lint, typecheck, unit tests, build, and e2e tests.
+- [x] `vercel.json` is valid JSON with `"framework": "nextjs"`.
+- [x] `docs/`, `.github/agents/`, `.github/skills/`, `.github/prompts/`, and `.github/instructions/` are unchanged.
+- [x] After the manual Vercel setup, the production URL shows the "Pathforge" home page.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
