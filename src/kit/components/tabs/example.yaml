@@ -1,0 +1,6 @@
+id: response-formats
+tabs:
+  - label: JSON
+    body: Use JSON for structured data exchanged between services.
+  - label: XML
+    body: XML remains common in document-oriented integrations.
