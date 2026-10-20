@@ -11,16 +11,16 @@ export function coursesDir(): string {
   return resolve(contentRoot(), "courses");
 }
 
-export function catalogDir(): string {
-  return resolve(contentRoot(), "catalog");
+export function catalogDir(root?: string): string {
+  return resolve(root ?? contentRoot(), "catalog");
 }
 
-export function taxonomyFile(): string {
-  return resolve(catalogDir(), "taxonomy.yaml");
+export function taxonomyFile(root?: string): string {
+  return resolve(catalogDir(root), "taxonomy.yaml");
 }
 
-export function roadmapsDir(): string {
-  return resolve(catalogDir(), "roadmaps");
+export function roadmapsDir(root?: string): string {
+  return resolve(catalogDir(root), "roadmaps");
 }
 
 export function themesDir(): string {
