@@ -1,0 +1,130 @@
+{
+  "components": [
+    {
+      "name": "callout",
+      "category": "content",
+      "description": "A themed note for important supporting information.",
+      "interactive": false,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "variant": {
+            "type": "string",
+            "enum": [
+              "info",
+              "tip",
+              "warning",
+              "danger"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "variant",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "variant": "tip",
+        "title": "Remember",
+        "body": "Status codes are **three digits**."
+      }
+    },
+    {
+      "name": "hint",
+      "category": "content",
+      "description": "A collapsed disclosure for optional supporting guidance.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "label": {
+            "default": "Show hint",
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "retry-strategy",
+        "body": "Retry only when the failure may be transient, and use a bounded backoff."
+      }
+    },
+    {
+      "name": "tabs",
+      "category": "content",
+      "description": "A keyboard-accessible set of two to six content panels.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "tabs": {
+            "minItems": 2,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "tabs"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "response-formats",
+        "tabs": [
+          {
+            "label": "JSON",
+            "body": "Use JSON for structured data exchanged between services."
+          },
+          {
+            "label": "XML",
+            "body": "XML remains common in document-oriented integrations."
+          }
+        ]
+      }
+    }
+  ]
+}

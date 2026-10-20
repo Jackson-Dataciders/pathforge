@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -70,12 +70,12 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `remark-kit` and `compileLesson` tests cover the listed cases and pass.
-- [ ] `src/kit/examples.test.ts` passes for `callout`, `tabs`, and `hint`.
-- [ ] `npm run kit:manifest` writes `src/kit/manifest.json` with three components including JSON Schemas; `npm run kit:manifest -- --check` exits 0 right after and non-zero after editing a schema without regenerating.
-- [ ] `/kit` renders callout, tabs, and hint; `e2e/kit.spec.ts` passes.
-- [ ] Tabs are operable with arrow keys (component test).
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `remark-kit` and `compileLesson` tests cover the listed cases and pass.
+- [x] `src/kit/examples.test.ts` passes for `callout`, `tabs`, and `hint`.
+- [x] `npm run kit:manifest` writes `src/kit/manifest.json` with three components including JSON Schemas; `npm run kit:manifest -- --check` exits 0 right after and non-zero after editing a schema without regenerating.
+- [x] `/kit` renders callout, tabs, and hint; `e2e/kit.spec.ts` passes.
+- [x] Tabs are operable with arrow keys (component test).
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

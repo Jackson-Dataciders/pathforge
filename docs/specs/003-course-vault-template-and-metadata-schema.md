@@ -1,7 +1,7 @@
 ---
-status: in-progress
+status: done
 priority: high
-created: "2026-10-20"
+created: 2026-10-20
 work_item: ""
 adr:
   - ../adr/0002-content-repository-layout.md

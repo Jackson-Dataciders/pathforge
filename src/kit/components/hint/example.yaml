@@ -1,0 +1,2 @@
+id: retry-strategy
+body: Retry only when the failure may be transient, and use a bounded backoff.
