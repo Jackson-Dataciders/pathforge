@@ -67,12 +67,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "specs/001-decide-on-frontend-framework.md",
+                "file": "adr/0015-course-agent-runtime-copilot-cli.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "001-decide-on-frontend-framework"
+              "title": "0015-course-agent-runtime-copilot-cli"
             }
           }
         ],
@@ -243,21 +243,41 @@
   },
   "active": "7f37094bcbc893e2",
   "lastOpenFiles": [
+    "adr/0013-course-agent-runtime.md.tmp.35368.8eb1f2d794a2",
+    "architecture.md.tmp.35368.a9e874e00fc5",
+    "architecture.md.tmp.35368.a81177c69e8d",
+    "architecture.md.tmp.35368.32e66f88fca5",
+    "specs/031-kit-csharp-runner.md.tmp.35368.ed0619088c7b",
+    "specs/029-kit-remote-execution-and-cpp-runner.md.tmp.35368.4b4a49976fe6",
+    "specs/027-course-builder-agent.md.tmp.35368.4c77d00766b8",
+    "specs/027-course-builder-agent.md",
+    "specs/022-course-planner-agent.md.tmp.35368.dd53584220d4",
+    "adr/0017-local-course-build-flow.md",
+    "adr/0017-local-course-build-flow.md.tmp.35368.0dc690161397",
+    "adr/0016-course-agents-in-vs-code.md",
+    "adr/0013-course-agent-runtime.md",
+    "adr/0015-course-agent-runtime-copilot-cli.md",
+    "specs/029-kit-remote-execution-and-cpp-runner.md",
     "specs/board.base",
-    "specs/001-decide-on-frontend-framework.md",
-    "specs/001-TestFrontend.md",
-    "_templates/_specs-template.md",
-    "_templates/adr-template.md",
-    "specs/Untitled.base",
-    "specs/dewf.md",
-    "architecture.md",
-    "Untitled.md",
-    "specs/template.md",
-    "_templates/specs-template.md",
-    "specs/specs-template.md",
-    "adr/adr-template.md",
-    "_templates",
-    "001-test.md",
-    "adr/template.md"
+    "specs/021-pipeline-foundation.md.tmp.35368.68a405599f2b",
+    "specs/031-kit-csharp-runner.md",
+    "specs/030-kit-rust-runner.md",
+    "specs/001-project-scaffold-and-vercel-deployment.md",
+    "specs/008-kit-animations.md",
+    "specs/007-kit-diagrams.md",
+    "specs/006-component-kit-foundation.md",
+    "specs/005-content-loader.md",
+    "specs/004-taxonomy.md",
+    "specs/003-course-vault-template-and-metadata-schema.md",
+    "specs/002-theme-system.md",
+    "specs/012-kit-structure-visualizations.md",
+    "specs/026-course-validation.md",
+    "specs/028-end-to-end-sample-course.md",
+    "specs/027-course-pipeline-workflow.md",
+    "specs/022-course-planner-agent.md",
+    "specs/025-roadmap-agent.md",
+    "specs/024-course-implementation-agent.md",
+    "specs/023-course-research-agent.md",
+    "specs/019-roadmap-data-format.md"
   ]
 }
