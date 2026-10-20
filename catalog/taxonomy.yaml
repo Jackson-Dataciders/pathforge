@@ -1,0 +1,55 @@
+version: 1
+categories:
+  - id: frontend
+    title: Frontend
+    description: User interfaces and client-side application development.
+    roadmap: null
+  - id: backend
+    title: Backend
+    description: Server-side applications, APIs, and data services.
+    roadmap: null
+  - id: devops
+    title: DevOps
+    description: Software delivery, infrastructure, and operations.
+    roadmap: null
+  - id: data
+    title: Data
+    description: Data storage, processing, and analysis.
+    roadmap: null
+  - id: computer-science
+    title: Computer Science
+    description: Foundational concepts in computing and software.
+    roadmap: null
+  - id: ai-ml
+    title: AI and Machine Learning
+    description: Artificial intelligence and machine learning techniques.
+    roadmap: null
+  - id: security
+    title: Security
+    description: Secure software design, implementation, and operations.
+    roadmap: null
+labels:
+  - id: http
+    title: HTTP
+  - id: apis
+    title: APIs
+  - id: databases
+    title: Databases
+  - id: testing
+    title: Testing
+  - id: algorithms
+    title: Algorithms
+  - id: data-structures
+    title: Data Structures
+  - id: javascript
+    title: JavaScript
+  - id: typescript
+    title: TypeScript
+  - id: python
+    title: Python
+  - id: cloud
+    title: Cloud
+  - id: networking
+    title: Networking
+  - id: architecture
+    title: Architecture

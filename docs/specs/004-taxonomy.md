@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -49,11 +49,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `catalog/taxonomy.yaml` exists with the seeded categories and labels and passes `taxonomySchema`.
-- [ ] Taxonomy unit tests cover the listed cases and pass.
-- [ ] `addCategory` with an existing id and `addLabels` with an invalid id throw (tests).
-- [ ] Writing an unchanged taxonomy produces identical bytes (test).
-- [ ] `npm run lint`, `npm run typecheck`, and `npm test` pass.
+- [x] `catalog/taxonomy.yaml` exists with the seeded categories and labels and passes `taxonomySchema`.
+- [x] Taxonomy unit tests cover the listed cases and pass.
+- [x] `addCategory` with an existing id and `addLabels` with an invalid id throw (tests).
+- [x] Writing an unchanged taxonomy produces identical bytes (test).
+- [x] `npm run lint`, `npm run typecheck`, and `npm test` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
