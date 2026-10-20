@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: medium
 created: "2026-10-20"
 work_item: ""
@@ -54,13 +54,13 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `npm run themes:build` generates `src/styles/themes.generated.css` and `src/theme/themes.generated.ts` from the four prebuilt theme files.
-- [ ] `src/theme/contrast.test.ts` passes for all four themes in both modes.
-- [ ] `npm run themes:build` exits non-zero for a theme missing a token or a missing `default` theme (covered by `scripts/build-themes.test.ts`).
-- [ ] The header shows a mode select with Light, Dark, System and a color theme select with Default, Forest, Ocean, and Sunset.
-- [ ] `e2e/theme.spec.ts` passes: dark mode changes the body background, and the selected color theme persists after reload.
-- [ ] `src/theme/no-raw-colors.test.ts` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `npm run themes:build` generates `src/styles/themes.generated.css` and `src/theme/themes.generated.ts` from the four prebuilt theme files.
+- [x] `src/theme/contrast.test.ts` passes for all four themes in both modes.
+- [x] `npm run themes:build` exits non-zero for a theme missing a token or a missing `default` theme (covered by `scripts/build-themes.test.ts`).
+- [x] The header shows a mode select with Light, Dark, System and a color theme select with Default, Forest, Ocean, and Sunset.
+- [x] `e2e/theme.spec.ts` passes: dark mode changes the body background, and the selected color theme persists after reload.
+- [x] `src/theme/no-raw-colors.test.ts` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
