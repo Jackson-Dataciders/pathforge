@@ -1,0 +1,28 @@
+filters:
+  and:
+    - file.inFolder("{{COURSE_FOLDER}}")
+    - file.ext == "md"
+    - file.name != "README"
+formulas:
+  stage: 'if(file.hasTag("implemented"), "implemented", if(file.hasTag("planned"), "planned", "created"))'
+properties:
+  file.name:
+    displayName: Lesson
+  formula.stage:
+    displayName: Stage
+views:
+  - type: kanban
+    name: Lessons
+    groupBy:
+      property: formula.stage
+      direction: ASC
+    groupOrder:
+      - created
+      - planned
+      - implemented
+  - type: table
+    name: All lessons
+    order:
+      - file.name
+      - formula.stage
+      - estimated_minutes
