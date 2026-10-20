@@ -1,0 +1,29 @@
+filters:
+  and:
+    - file.inFolder("specs")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Spec
+  work_item:
+    displayName: Work item
+views:
+  - type: kanban
+    name: Board
+    groupBy:
+      property: status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - ready
+      - planned
+      - in-progress
+      - done
+  - type: table
+    name: All specs
+    order:
+      - file.name
+      - status
+      - priority
+      - created
+      - work_item
