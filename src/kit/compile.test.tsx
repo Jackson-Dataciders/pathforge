@@ -28,4 +28,16 @@ describe('compileLesson', () => {
     expect(container.querySelector('aside')).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Injected' })).not.toBeInTheDocument();
   });
+
+  it('highlights known languages and falls back for unknown languages', async () => {
+    const lesson = await compileLesson(
+      '```ts\nconst answer: number = 42;\n```\n\n```unknown-language\nplain text\n```',
+      { file: 'lesson.md' },
+    );
+
+    const { container } = render(lesson);
+
+    expect(container.querySelector('pre code span[style*="--shiki-light"]')).not.toBeNull();
+    expect(screen.getByText('plain text')).toBeInTheDocument();
+  });
 });
