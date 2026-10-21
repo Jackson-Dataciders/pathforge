@@ -38,6 +38,78 @@
       }
     },
     {
+      "name": "code-walkthrough",
+      "category": "animation",
+      "description": "A code sample explained through highlighted line ranges, one step at a time.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 1
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "steps": {
+            "minItems": 1,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "lines": {
+                  "type": "string",
+                  "pattern": "^[1-9]\\d*(?:-[1-9]\\d*)?$"
+                },
+                "caption": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "lines",
+                "caption"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "language",
+          "code",
+          "steps"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "input-validation",
+        "title": "Validate a request",
+        "language": "javascript",
+        "code": "const input = request.body;\nif (typeof input.name !== 'string') {\n  throw new Error('Name is required');\n}\nreturn save(input.name.trim());",
+        "steps": [
+          {
+            "lines": "1-2",
+            "caption": "Read the request and verify that the name is text."
+          },
+          {
+            "lines": "3-5",
+            "caption": "Reject invalid input, then save the trimmed name."
+          }
+        ]
+      }
+    },
+    {
       "name": "diagram",
       "category": "diagram",
       "description": "A Mermaid diagram themed to the active color palette.",
@@ -98,6 +170,88 @@
       "example": {
         "id": "retry-strategy",
         "body": "Retry only when the failure may be transient, and use a bounded backoff."
+      }
+    },
+    {
+      "name": "stepper",
+      "category": "animation",
+      "description": "A sequence of diagram or text frames with playback and step controls.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "autoplay": {
+            "default": false,
+            "type": "boolean"
+          },
+          "interval_ms": {
+            "default": 2500,
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 10000
+          },
+          "steps": {
+            "minItems": 2,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "caption": {
+                  "type": "string"
+                },
+                "diagram": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "body": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "caption"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "autoplay",
+          "interval_ms",
+          "steps"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "publish-flow",
+        "title": "From draft to publication",
+        "autoplay": false,
+        "interval_ms": 2500,
+        "steps": [
+          {
+            "caption": "Start with a draft.",
+            "diagram": "flowchart LR\n  Draft --> Review",
+            "body": "The author submits the lesson for review."
+          },
+          {
+            "caption": "Review the lesson.",
+            "diagram": "flowchart LR\n  Draft --> Review\n  Review --> Publish",
+            "body": "Resolve feedback before publishing."
+          },
+          {
+            "caption": "Publish the approved lesson.",
+            "body": "The lesson is now available to learners."
+          }
+        ]
       }
     },
     {

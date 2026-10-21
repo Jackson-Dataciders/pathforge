@@ -1,0 +1,18 @@
+id: publish-flow
+title: From draft to publication
+autoplay: false
+interval_ms: 2500
+steps:
+  - caption: Start with a draft.
+    diagram: |-
+      flowchart LR
+        Draft --> Review
+    body: The author submits the lesson for review.
+  - caption: Review the lesson.
+    diagram: |-
+      flowchart LR
+        Draft --> Review
+        Review --> Publish
+    body: Resolve feedback before publishing.
+  - caption: Publish the approved lesson.
+    body: The lesson is now available to learners.
