@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: medium
 created: "2026-10-20"
 work_item: ""
@@ -49,11 +49,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `useStepper` unit tests pass (next, prev, autoplay stop at end, reduced motion).
-- [ ] `stepper` and `code-walkthrough` render their examples on `/kit`, and Next advances the step (e2e).
-- [ ] A `code-walkthrough` with `lines: "40-45"` on a 10-line code sample fails schema validation (test).
-- [ ] `src/kit/manifest.json` includes both components; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `useStepper` unit tests pass (next, prev, autoplay stop at end, reduced motion).
+- [x] `stepper` and `code-walkthrough` render their examples on `/kit`, and Next advances the step (e2e).
+- [x] A `code-walkthrough` with `lines: "40-45"` on a 10-line code sample fails schema validation (test).
+- [x] `src/kit/manifest.json` includes both components; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

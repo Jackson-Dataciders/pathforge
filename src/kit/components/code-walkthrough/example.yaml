@@ -1,0 +1,14 @@
+id: input-validation
+title: Validate a request
+language: javascript
+code: |-
+  const input = request.body;
+  if (typeof input.name !== 'string') {
+    throw new Error('Name is required');
+  }
+  return save(input.name.trim());
+steps:
+  - lines: "1-2"
+    caption: Read the request and verify that the name is text.
+  - lines: "3-5"
+    caption: Reject invalid input, then save the trimmed name.
