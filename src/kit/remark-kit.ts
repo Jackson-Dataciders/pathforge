@@ -25,18 +25,32 @@ export function remarkKit({ file }: RemarkKitOptions) {
 
     visit(tree, 'code', (node) => {
       const code = node as CodeNode;
-      if (!code.lang?.startsWith('kit:')) return;
+      const isMermaid = code.lang === 'mermaid';
+      if (!isMermaid && !code.lang?.startsWith('kit:')) return;
 
-      const name = code.lang.slice('kit:'.length);
+      const name = isMermaid ? 'diagram' : code.lang!.slice('kit:'.length);
       const line = code.position?.start.line ?? 1;
       let props: Record<string, unknown>;
 
-      try {
-        props = parseKitBlock({ name, yamlText: code.value ?? '', file, line });
-      } catch (error) {
-        if (error instanceof KitBlockError) errors.push(error);
-        else throw error;
-        return;
+      if (isMermaid) {
+        const result = getKitComponent(name)?.schema.safeParse({ code: code.value ?? '' });
+        if (!result?.success) {
+          const issues = result?.error.issues.map((issue) => {
+            const path = issue.path.length > 0 ? `${issue.path.join('.')}: ` : '';
+            return `${path}${issue.message}`;
+          }) ?? ['Unknown kit component "diagram"'];
+          errors.push(new KitBlockError(file, line, name, issues));
+          return;
+        }
+        props = result.data as Record<string, unknown>;
+      } else {
+        try {
+          props = parseKitBlock({ name, yamlText: code.value ?? '', file, line });
+        } catch (error) {
+          if (error instanceof KitBlockError) errors.push(error);
+          else throw error;
+          return;
+        }
       }
 
       const definition = getKitComponent(name);

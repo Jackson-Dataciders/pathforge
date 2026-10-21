@@ -4,6 +4,8 @@ import { Callout } from './components/callout/Callout';
 import { calloutSchema } from './components/callout/schema';
 import { Hint } from './components/hint/Hint';
 import { hintSchema } from './components/hint/schema';
+import { Diagram } from './components/diagram/Diagram';
+import { diagramSchema } from './components/diagram/schema';
 import { Tabs } from './components/tabs/Tabs';
 import { tabsSchema } from './components/tabs/schema';
 
@@ -16,6 +18,14 @@ export const kitRegistry: Record<string, RegisteredKitComponent> = {
     description: 'A themed note for important supporting information.',
     schema: calloutSchema,
     component: Callout,
+    interactive: false,
+  },
+  diagram: {
+    name: 'diagram',
+    category: 'diagram',
+    description: 'A Mermaid diagram themed to the active color palette.',
+    schema: diagramSchema,
+    component: Diagram,
     interactive: false,
   },
   hint: {

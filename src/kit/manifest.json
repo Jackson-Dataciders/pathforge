@@ -38,6 +38,36 @@
       }
     },
     {
+      "name": "diagram",
+      "category": "diagram",
+      "description": "A Mermaid diagram themed to the active color palette.",
+      "interactive": false,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "caption": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "code": "flowchart LR\n  Draft --> Review\n  Review --> Publish",
+        "caption": "A lesson moves from draft through review to publication."
+      }
+    },
+    {
       "name": "hint",
       "category": "content",
       "description": "A collapsed disclosure for optional supporting guidance.",

@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: medium
 created: "2026-10-20"
 work_item: ""
@@ -50,11 +50,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] A lesson containing a ` ```mermaid ` flowchart renders an SVG diagram on `/kit` (e2e).
-- [ ] Switching to dark mode changes the diagram's text or background color (e2e or component test).
-- [ ] `validateMermaid` returns ok for valid diagrams and an error message for invalid syntax (unit tests in Node).
-- [ ] `src/kit/manifest.json` includes `diagram`; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] A lesson containing a ` ```mermaid ` flowchart renders an SVG diagram on `/kit` (e2e).
+- [x] Switching to dark mode changes the diagram's text or background color (e2e or component test).
+- [x] `validateMermaid` returns ok for valid diagrams and an error message for invalid syntax (unit tests in Node).
+- [x] `src/kit/manifest.json` includes `diagram`; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
