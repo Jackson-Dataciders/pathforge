@@ -1,5 +1,7 @@
 import type { ComponentType } from 'react';
 import type { KitComponentDefinition } from './types';
+import { ArrayViz } from './components/array-viz/ArrayViz';
+import { arrayVizSchema } from './components/array-viz/schema';
 import { Callout } from './components/callout/Callout';
 import { calloutSchema } from './components/callout/schema';
 import { Hint } from './components/hint/Hint';
@@ -16,10 +18,20 @@ import { CodeChallenge } from './components/code-challenge/CodeChallenge';
 import { codeChallengeSchema } from './components/code-challenge/schema';
 import { Quiz } from './components/quiz/Quiz';
 import { quizSchema } from './components/quiz/schema';
+import { GraphViz } from './components/graph-viz/GraphViz';
+import { graphVizSchema } from './components/graph-viz/schema';
 
 type RegisteredKitComponent = Omit<KitComponentDefinition, 'component'> & { component: ComponentType<never> };
 
 export const kitRegistry: Record<string, RegisteredKitComponent> = {
+  'array-viz': {
+    name: 'array-viz',
+    category: 'visualization',
+    description: 'A step-by-step array, stack, or queue visualization.',
+    schema: arrayVizSchema,
+    component: ArrayViz,
+    interactive: true,
+  },
   callout: {
     name: 'callout',
     category: 'content',
@@ -51,6 +63,14 @@ export const kitRegistry: Record<string, RegisteredKitComponent> = {
     schema: diagramSchema,
     component: Diagram,
     interactive: false,
+  },
+  'graph-viz': {
+    name: 'graph-viz',
+    category: 'visualization',
+    description: 'A themed graph or tree with optional step-by-step highlighting.',
+    schema: graphVizSchema,
+    component: GraphViz,
+    interactive: true,
   },
   hint: {
     name: 'hint',

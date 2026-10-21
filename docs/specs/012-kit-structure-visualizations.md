@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: low
 created: "2026-10-20"
 work_item: ""
@@ -51,11 +51,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `reducer.ts` unit tests for all ops and invalid-op detection pass.
-- [ ] Graph schema rejects an edge to an unknown node (test).
-- [ ] On `/kit`, stepping the array example changes the displayed values, and stepping the graph example highlights a different node (e2e).
-- [ ] `src/kit/manifest.json` includes `array-viz` and `graph-viz`; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `reducer.ts` unit tests for all ops and invalid-op detection pass.
+- [x] Graph schema rejects an edge to an unknown node (test).
+- [x] On `/kit`, stepping the array example changes the displayed values, and stepping the graph example highlights a different node (e2e).
+- [x] `src/kit/manifest.json` includes `array-viz` and `graph-viz`; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
