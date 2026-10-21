@@ -38,6 +38,84 @@
       }
     },
     {
+      "name": "code-challenge",
+      "category": "assessment",
+      "description": "An editable programming challenge checked against its tests.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "javascript",
+              "typescript"
+            ]
+          },
+          "starter": {
+            "type": "string"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "tests": {
+            "type": "string"
+          },
+          "hints": {
+            "default": [],
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timeout_ms": {
+            "default": 5000,
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 15000
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "prompt",
+          "language",
+          "starter",
+          "solution",
+          "tests",
+          "hints",
+          "timeout_ms"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "sum-two-numbers",
+        "title": "Add two numbers",
+        "prompt": "Write a function named `sum` that returns the sum of two numbers.",
+        "language": "javascript",
+        "starter": "function sum(a, b) {\n  return 0;\n}",
+        "solution": "function sum(a, b) {\n  return a + b;\n}",
+        "tests": "test('adds positive numbers', () => assert.equal(sum(2, 3), 5));\ntest('adds a negative number', () => assert.equal(sum(-2, 5), 3));\ntest('adds zero', () => assert.equal(sum(0, 0), 0));",
+        "hints": [
+          "Return the result of the `+` operator."
+        ],
+        "timeout_ms": 5000
+      }
+    },
+    {
       "name": "code-walkthrough",
       "category": "animation",
       "description": "A code sample explained through highlighted line ranges, one step at a time.",

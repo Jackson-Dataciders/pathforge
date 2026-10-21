@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('showcase renders each registered component', async ({ page }) => {
   await page.goto('/kit');
 
-  for (const name of ['callout', 'code-walkthrough', 'diagram', 'hint', 'quiz', 'stepper', 'tabs']) {
+  for (const name of ['callout', 'code-challenge', 'code-walkthrough', 'diagram', 'hint', 'quiz', 'stepper', 'tabs']) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
   }
 
@@ -23,4 +23,15 @@ test('showcase renders each registered component', async ({ page }) => {
 
   const diagram = page.getByRole('img', { name: 'Diagram', exact: true }).first();
   await expect(diagram.locator('svg')).toBeVisible();
+
+  const challenge = page.getByRole('region', { name: 'Add two numbers' });
+  await challenge.getByRole('button', { name: 'Run tests' }).click();
+  await expect(challenge.getByText('Tests failed')).toBeVisible();
+
+  const editor = challenge.locator('.cm-content');
+  await editor.click();
+  await page.keyboard.press('Control+A');
+  await page.keyboard.insertText('function sum(a, b) {\n  return a + b;\n}');
+  await challenge.getByRole('button', { name: 'Run tests' }).click();
+  await expect(challenge.getByText('All tests passed')).toBeVisible();
 });
