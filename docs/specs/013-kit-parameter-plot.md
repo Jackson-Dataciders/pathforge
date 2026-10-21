@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: low
 created: "2026-10-20"
 work_item: ""
@@ -48,11 +48,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `expression.ts` unit tests pass, including rejection of `constructor`, unknown identifiers, and syntax errors.
-- [ ] Moving a slider on `/kit` changes the plotted path's `d` attribute (e2e).
-- [ ] Schema rejects an undeclared variable (test).
-- [ ] `src/kit/manifest.json` includes `param-plot`; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `expression.ts` unit tests pass, including rejection of `constructor`, unknown identifiers, and syntax errors.
+- [x] Moving a slider on `/kit` changes the plotted path's `d` attribute (e2e).
+- [x] Schema rejects an undeclared variable (test).
+- [x] `src/kit/manifest.json` includes `param-plot`; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

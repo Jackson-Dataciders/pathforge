@@ -11,6 +11,7 @@ test('showcase renders each registered component', async ({ page }) => {
     'diagram',
     'graph-viz',
     'hint',
+    'param-plot',
     'quiz',
     'stepper',
     'tabs',
@@ -28,6 +29,12 @@ test('showcase renders each registered component', async ({ page }) => {
   await expect(graphViz.getByText('Highlighted nodes: Start.')).toBeAttached();
   await graphViz.getByRole('button', { name: 'Next step' }).click();
   await expect(graphViz.getByText('Highlighted nodes: Left branch.')).toBeAttached();
+
+  const paramPlot = page.getByRole('region', { name: 'Compare growth rates' });
+  const curve = paramPlot.getByRole('img').locator('path').nth(1);
+  const originalPath = await curve.getAttribute('d');
+  await paramPlot.getByRole('slider', { name: 'Constant c' }).press('ArrowRight');
+  await expect(curve).not.toHaveAttribute('d', originalPath ?? '');
 
   const quiz = page.getByRole('region', { name: 'Knowledge check' });
   await quiz.getByRole('radio', { name: 'JavaScript' }).check();
