@@ -12,6 +12,8 @@ import { Stepper } from './components/stepper/Stepper';
 import { stepperSchema } from './components/stepper/schema';
 import { CodeWalkthrough } from './components/code-walkthrough/CodeWalkthrough';
 import { codeWalkthroughSchema } from './components/code-walkthrough/schema';
+import { Quiz } from './components/quiz/Quiz';
+import { quizSchema } from './components/quiz/schema';
 
 type RegisteredKitComponent = Omit<KitComponentDefinition, 'component'> & { component: ComponentType<never> };
 
@@ -46,6 +48,14 @@ export const kitRegistry: Record<string, RegisteredKitComponent> = {
     description: 'A collapsed disclosure for optional supporting guidance.',
     schema: hintSchema,
     component: Hint,
+    interactive: true,
+  },
+  quiz: {
+    name: 'quiz',
+    category: 'assessment',
+    description: 'An auto-graded lesson quiz with explanations and progress reporting.',
+    schema: quizSchema,
+    component: Quiz,
     interactive: true,
   },
   tabs: {

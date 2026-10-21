@@ -173,6 +173,289 @@
       }
     },
     {
+      "name": "quiz",
+      "category": "assessment",
+      "description": "An auto-graded lesson quiz with explanations and progress reporting.",
+      "interactive": true,
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "pass_threshold": {
+            "default": 1,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "questions": {
+            "minItems": 1,
+            "maxItems": 15,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "single"
+                    },
+                    "options": {
+                      "minItems": 2,
+                      "maxItems": 8,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "text": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "correct": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "text",
+                          "correct"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "prompt",
+                    "explanation",
+                    "type",
+                    "options"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "multiple"
+                    },
+                    "options": {
+                      "minItems": 2,
+                      "maxItems": 8,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "text": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "correct": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "text",
+                          "correct"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "prompt",
+                    "explanation",
+                    "type",
+                    "options"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "boolean"
+                    },
+                    "answer": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "prompt",
+                    "explanation",
+                    "type",
+                    "answer"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "text"
+                    },
+                    "accepted": {
+                      "minItems": 1,
+                      "maxItems": 10,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "case_sensitive": {
+                      "default": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "prompt",
+                    "explanation",
+                    "type",
+                    "accepted",
+                    "case_sensitive"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "pass_threshold",
+          "questions"
+        ],
+        "additionalProperties": false
+      },
+      "example": {
+        "id": "kit-quiz",
+        "title": "Knowledge check",
+        "questions": [
+          {
+            "id": "single-choice",
+            "type": "single",
+            "prompt": "Which language runs in a browser without an extra runtime?",
+            "explanation": "JavaScript is built into web browsers.",
+            "options": [
+              {
+                "id": "javascript",
+                "text": "JavaScript",
+                "correct": true
+              },
+              {
+                "id": "ruby",
+                "text": "Ruby",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "id": "multiple-choice",
+            "type": "multiple",
+            "prompt": "Which are web standards?",
+            "explanation": "HTML and CSS are web standards; Markdown is not.",
+            "options": [
+              {
+                "id": "html",
+                "text": "HTML",
+                "correct": true
+              },
+              {
+                "id": "css",
+                "text": "CSS",
+                "correct": true
+              },
+              {
+                "id": "markdown",
+                "text": "Markdown",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "id": "boolean",
+            "type": "boolean",
+            "prompt": "Can CSS style an HTML document?",
+            "explanation": "CSS describes how HTML content is presented.",
+            "answer": true
+          },
+          {
+            "id": "short-text",
+            "type": "text",
+            "prompt": "Which markup language structures a web page?",
+            "explanation": "HTML provides structure for web pages.",
+            "accepted": [
+              "HTML",
+              "HyperText Markup Language"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "name": "stepper",
       "category": "animation",
       "description": "A sequence of diagram or text frames with playback and step controls.",

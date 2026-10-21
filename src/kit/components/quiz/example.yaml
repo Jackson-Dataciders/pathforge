@@ -1,0 +1,40 @@
+id: kit-quiz
+title: Knowledge check
+questions:
+  - id: single-choice
+    type: single
+    prompt: Which language runs in a browser without an extra runtime?
+    explanation: JavaScript is built into web browsers.
+    options:
+      - id: javascript
+        text: JavaScript
+        correct: true
+      - id: ruby
+        text: Ruby
+        correct: false
+  - id: multiple-choice
+    type: multiple
+    prompt: Which are web standards?
+    explanation: HTML and CSS are web standards; Markdown is not.
+    options:
+      - id: html
+        text: HTML
+        correct: true
+      - id: css
+        text: CSS
+        correct: true
+      - id: markdown
+        text: Markdown
+        correct: false
+  - id: boolean
+    type: boolean
+    prompt: Can CSS style an HTML document?
+    explanation: CSS describes how HTML content is presented.
+    answer: true
+  - id: short-text
+    type: text
+    prompt: Which markup language structures a web page?
+    explanation: HTML provides structure for web pages.
+    accepted:
+      - HTML
+      - HyperText Markup Language
