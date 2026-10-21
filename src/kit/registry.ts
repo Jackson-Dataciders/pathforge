@@ -20,6 +20,8 @@ import { Quiz } from './components/quiz/Quiz';
 import { quizSchema } from './components/quiz/schema';
 import { GraphViz } from './components/graph-viz/GraphViz';
 import { graphVizSchema } from './components/graph-viz/schema';
+import { ParamPlot } from './components/param-plot/ParamPlot';
+import { paramPlotSchema } from './components/param-plot/schema';
 
 type RegisteredKitComponent = Omit<KitComponentDefinition, 'component'> & { component: ComponentType<never> };
 
@@ -70,6 +72,14 @@ export const kitRegistry: Record<string, RegisteredKitComponent> = {
     description: 'A themed graph or tree with optional step-by-step highlighting.',
     schema: graphVizSchema,
     component: GraphViz,
+    interactive: true,
+  },
+  'param-plot': {
+    name: 'param-plot',
+    category: 'visualization',
+    description: 'An interactive plot of mathematical expressions with adjustable parameters.',
+    schema: paramPlotSchema,
+    component: ParamPlot,
     interactive: true,
   },
   hint: {
