@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -55,12 +55,12 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `grade.ts` unit tests cover single, multiple, boolean, and text questions including normalization, and pass.
-- [ ] Schema rejects a single-choice question with two correct options (test).
-- [ ] Component tests for pass, fail, and retry pass, including the reported result.
-- [ ] The `/kit` quiz example can be answered correctly and shows "Passed" (e2e).
-- [ ] `src/kit/manifest.json` includes `quiz`; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `grade.ts` unit tests cover single, multiple, boolean, and text questions including normalization, and pass.
+- [x] Schema rejects a single-choice question with two correct options (test).
+- [x] Component tests for pass, fail, and retry pass, including the reported result.
+- [x] The `/kit` quiz example can be answered correctly and shows "Passed" (e2e).
+- [x] `src/kit/manifest.json` includes `quiz`; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
