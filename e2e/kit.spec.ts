@@ -3,9 +3,31 @@ import { expect, test } from '@playwright/test';
 test('showcase renders each registered component', async ({ page }) => {
   await page.goto('/kit');
 
-  for (const name of ['callout', 'code-challenge', 'code-walkthrough', 'diagram', 'hint', 'quiz', 'stepper', 'tabs']) {
+  for (const name of [
+    'array-viz',
+    'callout',
+    'code-challenge',
+    'code-walkthrough',
+    'diagram',
+    'graph-viz',
+    'hint',
+    'quiz',
+    'stepper',
+    'tabs',
+  ]) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
   }
+
+  const arrayViz = page.getByRole('region', { name: 'One bubble-sort pass' });
+  await expect(arrayViz.getByRole('img')).toHaveAttribute('aria-label', /Values: 5, 1, 4, 2/);
+  await arrayViz.getByRole('button', { name: 'Next step' }).click();
+  await expect(arrayViz.getByRole('img')).toHaveAttribute('aria-label', /Values: 1, 5, 4, 2/);
+
+  const graphViz = page.getByRole('region', { name: 'Breadth-first search' });
+  await graphViz.getByRole('button', { name: 'Next step' }).click();
+  await expect(graphViz.getByText('Highlighted nodes: Start.')).toBeAttached();
+  await graphViz.getByRole('button', { name: 'Next step' }).click();
+  await expect(graphViz.getByText('Highlighted nodes: Left branch.')).toBeAttached();
 
   const quiz = page.getByRole('region', { name: 'Knowledge check' });
   await quiz.getByRole('radio', { name: 'JavaScript' }).check();
@@ -24,7 +46,7 @@ test('showcase renders each registered component', async ({ page }) => {
   const diagram = page.getByRole('img', { name: 'Diagram', exact: true }).first();
   await expect(diagram.locator('svg')).toBeVisible();
 
-  const challenge = page.getByRole('region', { name: 'Add two numbers' });
+  const challenge = page.getByRole('region', { name: 'Add two numbers', exact: true });
   await challenge.getByRole('button', { name: 'Run tests' }).click();
   await expect(challenge.getByText('Tests failed')).toBeVisible();
 

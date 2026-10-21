@@ -1,0 +1,20 @@
+id: bubble-sort-pass
+title: One bubble-sort pass
+kind: array
+initial: [5, 1, 4, 2]
+steps:
+  - caption: Compare 5 and 1; the larger value moves right.
+    op:
+      type: swap
+      i: 0
+      j: 1
+  - caption: Compare 5 and 4; swap them to continue the pass.
+    op:
+      type: swap
+      i: 1
+      j: 2
+  - caption: Compare 5 and 2; the largest value reaches the end.
+    op:
+      type: swap
+      i: 2
+      j: 3

@@ -1,0 +1,37 @@
+id: breadth-first-search
+title: Breadth-first search
+directed: true
+layout: layered
+nodes:
+  - id: start
+    label: Start
+  - id: left
+    label: Left branch
+  - id: right
+    label: Right branch
+  - id: target
+    label: Target
+edges:
+  - from: start
+    to: left
+  - from: start
+    to: right
+  - from: left
+    to: target
+  - from: right
+    to: target
+steps:
+  - caption: Begin the search at the start node.
+    highlight_nodes: [start]
+  - caption: Visit the left branch before moving deeper.
+    highlight_nodes: [left]
+    highlight_edges:
+      - [start, left]
+  - caption: Then visit the right branch at the same depth.
+    highlight_nodes: [right]
+    highlight_edges:
+      - [start, right]
+  - caption: Continue to the target from the left branch.
+    highlight_nodes: [target]
+    highlight_edges:
+      - [left, target]
