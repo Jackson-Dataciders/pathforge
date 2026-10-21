@@ -37,6 +37,26 @@ describe('remarkKit', () => {
     });
   });
 
+  it('replaces a Mermaid fence with a diagram KitBlock', () => {
+    const tree = markdownTree({
+      type: 'code',
+      lang: 'mermaid',
+      value: 'flowchart LR\n  A --> B',
+      position: { start: { line: 7 } },
+    });
+
+    remarkKit({ file: 'lesson.md' })(tree);
+
+    expect(tree.children[0]).toMatchObject({
+      type: 'mdxJsxFlowElement',
+      name: 'KitBlock',
+      attributes: [
+        { name: 'name', value: 'diagram' },
+        { name: 'payload', value: '{"code":"flowchart LR\\n  A --> B"}' },
+      ],
+    });
+  });
+
   it('leaves ordinary code fences unchanged', () => {
     const tree = markdownTree({ type: 'code', lang: 'yaml', value: 'key: value' });
 

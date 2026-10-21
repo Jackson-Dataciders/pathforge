@@ -4,7 +4,7 @@ import { compileLesson } from '@/kit/compile';
 import { kitRegistry } from '@/kit/registry';
 
 export default async function KitPage() {
-  const source = Object.values(kitRegistry)
+  const componentExamples = Object.values(kitRegistry)
     .sort((left, right) => left.name.localeCompare(right.name))
     .map((definition) => {
       const example = readFileSync(
@@ -14,6 +14,7 @@ export default async function KitPage() {
       return `## ${definition.name}\n\n\`\`\`kit:${definition.name}\n${example}\n\`\`\``;
     })
     .join('\n\n');
+  const source = `${componentExamples}\n\n## Standard Mermaid fence\n\n\`\`\`mermaid\nflowchart LR\n  Plan --> Build\n  Build --> Review\n\`\`\``;
 
   return (
     <section>

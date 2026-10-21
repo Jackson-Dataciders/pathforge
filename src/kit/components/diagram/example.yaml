@@ -1,0 +1,5 @@
+code: |-
+  flowchart LR
+    Draft --> Review
+    Review --> Publish
+caption: "A lesson moves from draft through review to publication."
