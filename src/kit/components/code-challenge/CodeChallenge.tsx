@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { javascriptBrowserRunner } from '../../../runners/javascript/browser';
+import { pythonBrowserRunner } from '../../../runners/python/browser';
 import type { RunResult } from '../../../runners/types';
 import { Markdown } from '../../markdown';
 import { useReportResult } from '../../result-context';
@@ -38,6 +39,7 @@ export function CodeChallenge({
   timeout_ms,
 }: CodeChallengeProps) {
   const reportResult = useReportResult();
+  const isPython = pythonBrowserRunner.languages.includes(language);
   const storageKey = `pathforge:code-challenge:${id}`;
   const [code, setCode] = useState(() => {
     try {
@@ -48,6 +50,7 @@ export function CodeChallenge({
   });
   const [result, setResult] = useState<RunResult | null>(null);
   const [isRunning, setIsRunning] = useState(false);
+  const [isLoadingPython, setIsLoadingPython] = useState(false);
   const [hasRun, setHasRun] = useState(false);
   const [visibleHints, setVisibleHints] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
@@ -63,13 +66,18 @@ export function CodeChallenge({
 
   async function runTests() {
     setIsRunning(true);
+    setIsLoadingPython(isPython && !pythonBrowserRunner.isLoaded);
     try {
-      const nextResult = await javascriptBrowserRunner.run({
+      const request = {
         language,
         code,
         tests,
         timeoutMs: timeout_ms,
-      });
+      };
+      const nextResult =
+        isPython
+          ? await pythonBrowserRunner.run(request, () => setIsLoadingPython(false))
+          : await javascriptBrowserRunner.run(request);
       setResult(nextResult);
       setHasRun(true);
       reportResult({ blockId: id, kind: 'code-challenge', passed: nextResult.status === 'passed' });
@@ -80,6 +88,7 @@ export function CodeChallenge({
       reportResult({ blockId: id, kind: 'code-challenge', passed: false });
     } finally {
       setIsRunning(false);
+      setIsLoadingPython(false);
     }
   }
 
@@ -120,7 +129,7 @@ export function CodeChallenge({
           onClick={runTests}
           type="button"
         >
-          {isRunning ? 'Running tests...' : 'Run tests'}
+          {isRunning ? (isLoadingPython ? 'Loading Python…' : 'Running tests...') : 'Run tests'}
         </button>
         <button
           className="rounded border border-border px-3 py-2 text-sm text-fg disabled:cursor-not-allowed disabled:opacity-50"

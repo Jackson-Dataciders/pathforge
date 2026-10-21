@@ -1,6 +1,7 @@
 'use client';
 
 import { javascript } from '@codemirror/lang-javascript';
+import { python } from '@codemirror/lang-python';
 import CodeMirror, { EditorView } from '@uiw/react-codemirror';
 
 const theme = EditorView.theme({
@@ -40,7 +41,7 @@ export function CodeEditor({
     <CodeMirror
       aria-label="Code challenge editor"
       basicSetup={{ foldGutter: false }}
-      extensions={[javascript({ typescript: language === 'typescript' })]}
+      extensions={[language === 'python' ? python() : javascript({ typescript: language === 'typescript' })]}
       height="320px"
       onChange={onChange}
       theme={theme}

@@ -1,4 +1,4 @@
-export const SUPPORTED_CODE_LANGUAGES = ['javascript', 'typescript'] as const;
+export const SUPPORTED_CODE_LANGUAGES = ['javascript', 'typescript', 'python'] as const;
 
 export type RunRequest = {
   language: string;
