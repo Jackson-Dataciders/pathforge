@@ -14,7 +14,8 @@ export default async function KitPage() {
       return `## ${definition.name}\n\n\`\`\`kit:${definition.name}\n${example}\n\`\`\``;
     })
     .join('\n\n');
-  const source = `${componentExamples}\n\n## Standard Mermaid fence\n\n\`\`\`mermaid\nflowchart LR\n  Plan --> Build\n  Build --> Review\n\`\`\``;
+  const pythonExample = readFileSync(resolve('src/kit/components/code-challenge/example-python.yaml'), 'utf8').trimEnd();
+  const source = `${componentExamples}\n\n## Python code challenge\n\n\`\`\`kit:code-challenge\n${pythonExample}\n\`\`\`\n\n## Standard Mermaid fence\n\n\`\`\`mermaid\nflowchart LR\n  Plan --> Build\n  Build --> Review\n\`\`\``;
 
   return (
     <section>

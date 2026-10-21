@@ -61,7 +61,8 @@
             "type": "string",
             "enum": [
               "javascript",
-              "typescript"
+              "typescript",
+              "python"
             ]
           },
           "starter": {

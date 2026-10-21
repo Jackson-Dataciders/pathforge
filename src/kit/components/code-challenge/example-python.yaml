@@ -1,0 +1,18 @@
+id: python-add-two-numbers
+title: Add two numbers in Python
+prompt: Write a function named `add` that returns the sum of two numbers.
+language: python
+starter: |-
+  def add(a, b):
+      return 0
+solution: |-
+  def add(a, b):
+      return a + b
+tests: |-
+  def test_adds():
+      assert add(2, 3) == 5
+  def test_adds_negative_number():
+      assert add(-2, 5) == 3
+hints:
+  - Return the result of the `+` operator.
+timeout_ms: 5000

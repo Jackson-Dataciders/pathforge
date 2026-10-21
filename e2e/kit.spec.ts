@@ -35,3 +35,16 @@ test('showcase renders each registered component', async ({ page }) => {
   await challenge.getByRole('button', { name: 'Run tests' }).click();
   await expect(challenge.getByText('All tests passed')).toBeVisible();
 });
+
+test('Python code challenge passes with its reference solution', async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto('/kit');
+
+  const challenge = page.getByRole('region', { name: 'Add two numbers in Python' });
+  const editor = challenge.locator('.cm-content');
+  await editor.click();
+  await page.keyboard.press('Control+A');
+  await page.keyboard.insertText('def add(a, b):\n    return a + b');
+  await challenge.getByRole('button', { name: 'Run tests' }).click();
+  await expect(challenge.getByText('All tests passed')).toBeVisible({ timeout: 60_000 });
+});

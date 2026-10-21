@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: medium
 created: "2026-10-20"
 work_item: ""
@@ -55,11 +55,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] Python Node runner tests cover all listed cases and pass.
-- [ ] The Python example on `/kit` passes with its solution in the browser (e2e).
-- [ ] `isSupportedCodeLanguage('python')` returns true (test).
-- [ ] The Python code-challenge schema example validates and the manifest lists `python` in the `language` enum; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] Python Node runner tests cover all listed cases and pass.
+- [x] The Python example on `/kit` passes with its solution in the browser (e2e).
+- [x] `isSupportedCodeLanguage('python')` returns true (test).
+- [x] The Python code-challenge schema example validates and the manifest lists `python` in the `language` enum; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

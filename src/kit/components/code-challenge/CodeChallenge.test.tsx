@@ -1,6 +1,9 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { parse } from 'yaml';
 
 vi.mock('next/dynamic', () => ({ default: () => () => null }));
 vi.mock('../../../runners/javascript/browser', () => ({
@@ -60,13 +63,19 @@ describe('CodeChallenge', () => {
       id: 'unsupported-language',
       title: 'Unsupported',
       prompt: 'Implement it.',
-      language: 'python',
+      language: 'ruby',
       starter: '',
       solution: '',
       tests: '',
     });
 
     expect(result.success).toBe(false);
+  });
+
+  it('validates the Python example against the code-challenge schema', () => {
+    const example = parse(readFileSync(resolve('src/kit/components/code-challenge/example-python.yaml'), 'utf8'));
+
+    expect(codeChallengeSchema.safeParse(example).success).toBe(true);
   });
 
   it('shows passing test results and gates solution reveal until the first run', async () => {
