@@ -12,6 +12,8 @@ import { Stepper } from './components/stepper/Stepper';
 import { stepperSchema } from './components/stepper/schema';
 import { CodeWalkthrough } from './components/code-walkthrough/CodeWalkthrough';
 import { codeWalkthroughSchema } from './components/code-walkthrough/schema';
+import { CodeChallenge } from './components/code-challenge/CodeChallenge';
+import { codeChallengeSchema } from './components/code-challenge/schema';
 import { Quiz } from './components/quiz/Quiz';
 import { quizSchema } from './components/quiz/schema';
 
@@ -32,6 +34,14 @@ export const kitRegistry: Record<string, RegisteredKitComponent> = {
     description: 'A code sample explained through highlighted line ranges, one step at a time.',
     schema: codeWalkthroughSchema,
     component: CodeWalkthrough,
+    interactive: true,
+  },
+  'code-challenge': {
+    name: 'code-challenge',
+    category: 'assessment',
+    description: 'An editable programming challenge checked against its tests.',
+    schema: codeChallengeSchema,
+    component: CodeChallenge,
     interactive: true,
   },
   diagram: {

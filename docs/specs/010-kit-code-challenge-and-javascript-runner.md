@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -56,12 +56,12 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] Node runner tests cover all listed cases and pass, including `timeout` for `while (true) {}` within the configured timeout plus 1 s.
-- [ ] The `/kit` code challenge example passes with the example solution and fails with the starter code (e2e).
-- [ ] The UI shows each test's name and result after running.
-- [ ] `getNodeRunner('typescript')` runs TypeScript code with type annotations successfully (test).
-- [ ] `src/kit/manifest.json` includes `code-challenge`; `npm run kit:manifest -- --check` passes.
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] Node runner tests cover all listed cases and pass, including `timeout` for `while (true) {}` within the configured timeout plus 1 s.
+- [x] The `/kit` code challenge example passes with the example solution and fails with the starter code (e2e).
+- [x] The UI shows each test's name and result after running.
+- [x] `getNodeRunner('typescript')` runs TypeScript code with type annotations successfully (test).
+- [x] `src/kit/manifest.json` includes `code-challenge`; `npm run kit:manifest -- --check` passes.
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
