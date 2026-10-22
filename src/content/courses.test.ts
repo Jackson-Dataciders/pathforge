@@ -46,14 +46,22 @@ describe("course content loader", () => {
 
     const discovered = discoverCourseFolders(root);
 
-    expect(discovered).toEqual(["draft-course", "in-progress-course", "sample-course"]);
+    expect(discovered).toEqual([
+      "draft-course",
+      "in-progress-course",
+      "sample-course",
+      "sample-course-two",
+    ]);
   });
 
   it("lists only published courses and skips invalid drafts with a warning", () => {
     const root = copyContentFixture();
     const warning = vi.spyOn(console, "warn").mockImplementation(() => undefined);
 
-    expect(listPublishedCourses(root).map(({ slug }) => slug)).toEqual(["sample-course"]);
+    expect(listPublishedCourses(root).map(({ slug }) => slug)).toEqual([
+      "sample-course",
+      "sample-course-two",
+    ]);
     expect(warning).toHaveBeenCalledWith(expect.stringContaining("draft-course"));
   });
 
@@ -66,7 +74,10 @@ describe("course content loader", () => {
     writeFileSync(readme, stringifyMarkdownFile({ ...parsed.data, status: "researching" }, parsed.body));
     const warning = vi.spyOn(console, "warn").mockImplementation(() => undefined);
 
-    expect(listPublishedCourses(root).map(({ slug }) => slug)).toEqual(["sample-course"]);
+    expect(listPublishedCourses(root).map(({ slug }) => slug)).toEqual([
+      "sample-course",
+      "sample-course-two",
+    ]);
     expect(warning).toHaveBeenCalledWith(expect.stringContaining('Course folder name "bad_course" is not a valid slug'));
   });
 
