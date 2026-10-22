@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -52,11 +52,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `e2e/course.spec.ts` passes all listed checks against `fixtures/content`.
-- [ ] Lesson pages are statically generated (listed as SSG routes in `next build` output).
-- [ ] The lesson wrapper element has `lang` equal to the course's `course_language` (e2e).
-- [ ] Code blocks are highlighted in both light and dark mode (e2e checks a token span with color style in both modes).
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `e2e/course.spec.ts` passes all listed checks against `fixtures/content`.
+- [x] Lesson pages are statically generated (listed as SSG routes in `next build` output).
+- [x] The lesson wrapper element has `lang` equal to the course's `course_language` (e2e).
+- [x] Code blocks are highlighted in both light and dark mode (e2e checks a token span with color style in both modes).
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
