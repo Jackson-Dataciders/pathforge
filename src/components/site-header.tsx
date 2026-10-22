@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UserMenu } from "./auth/user-menu";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export function SiteHeader() {
@@ -22,7 +23,10 @@ export function SiteHeader() {
             Roadmaps
           </Link>
         </nav>
-        <ThemeSwitcher />
+        <div className="flex items-center gap-4">
+          <ThemeSwitcher />
+          <UserMenu />
+        </div>
       </div>
     </header>
   );

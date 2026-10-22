@@ -17,6 +17,7 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     env: {
+      AUTH_SECRET: "pathforge-playwright-test-secret-only",
       PATHFORGE_CONTENT_ROOT: "fixtures/content",
     },
   },
