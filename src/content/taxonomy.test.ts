@@ -7,8 +7,8 @@ describe("taxonomy", () => {
   it("loads and validates the content fixture", () => {
     const taxonomy = loadTaxonomy(resolve("fixtures/content"));
 
-    expect(taxonomy.categories.map(({ id }) => id)).toEqual(["backend"]);
-    expect(taxonomy.labels.map(({ id }) => id)).toEqual(["http"]);
+    expect(taxonomy.categories.map(({ id }) => id)).toEqual(["backend", "data"]);
+    expect(taxonomy.labels.map(({ id }) => id)).toEqual(["http", "databases"]);
   });
 
   it("rejects duplicate category and label ids", () => {
@@ -54,6 +54,11 @@ describe("taxonomy", () => {
     ).toEqual([
       {
         categoryId: "backend",
+        path: "catalog/roadmaps/backend.yaml",
+        message: "Roadmap file catalog/roadmaps/backend.yaml does not exist",
+      },
+      {
+        categoryId: "data",
         path: "catalog/roadmaps/backend.yaml",
         message: "Roadmap file catalog/roadmaps/backend.yaml does not exist",
       },

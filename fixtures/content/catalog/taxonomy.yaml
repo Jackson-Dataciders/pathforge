@@ -4,6 +4,12 @@ categories:
     title: Backend
     description: Server-side applications and services.
     roadmap: null
+  - id: data
+    title: Data
+    description: Data storage, modeling, and querying.
+    roadmap: null
 labels:
   - id: http
     title: HTTP
+  - id: databases
+    title: Databases

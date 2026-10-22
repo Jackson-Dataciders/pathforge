@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: medium
 created: "2026-10-20"
 work_item: ""
@@ -50,10 +50,10 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `src/content/catalog.ts` unit tests (counts, excerpt, AND label filter, unknown filter values) pass.
-- [ ] `e2e/catalog.spec.ts` passes.
-- [ ] The home page shows category course counts matching the fixtures (e2e).
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
+- [x] `src/content/catalog.ts` unit tests (counts, excerpt, AND label filter, unknown filter values) pass.
+- [x] `e2e/catalog.spec.ts` passes.
+- [x] The home page shows category course counts matching the fixtures (e2e).
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass.
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->
