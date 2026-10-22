@@ -11,7 +11,10 @@ test('published course and lesson pages render their content and navigation', as
   await expect(page.getByRole('link', { name: /Next Steps/ })).toBeVisible();
 
   await page.getByRole('link', { name: /Introduction/ }).click();
-  await expect(page.locator('article[lang="en"]')).toBeVisible();
+  const lessonArticle = page.locator('article[lang="en"]').filter({
+    has: page.getByRole('heading', { name: 'Objectives' }),
+  });
+  await expect(lessonArticle).toBeVisible();
   await expect(page.getByRole('link', { name: /^Previous:/ })).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Objectives' })).toBeVisible();
   await expect(page.getByText('Recognize the purpose of an HTTP status code.')).toBeVisible();

@@ -7,6 +7,12 @@ vi.mock("next-themes", () => ({
   useTheme: () => ({ theme: "system", setTheme: vi.fn() }),
 }));
 
+vi.mock("next-auth/react", () => ({
+  useSession: () => ({ data: null, status: "unauthenticated" }),
+  signIn: vi.fn(),
+  signOut: vi.fn(),
+}));
+
 describe("SiteHeader", () => {
   it("links to home, courses, and roadmaps", () => {
     render(

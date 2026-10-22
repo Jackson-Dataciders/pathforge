@@ -30,3 +30,5 @@ To deploy on Vercel:
 2. Select Next.js as the framework preset.
 3. Set the Node.js version to 22.
 4. Set `main` as the production branch.
+5. Create a GitHub OAuth App with the callback URL `https://<domain>/api/auth/callback/github`. For local development, also use `http://localhost:3000/api/auth/callback/github`.
+6. Set `AUTH_SECRET`, `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`, and `ALLOWED_GITHUB_USER_ID` in the Vercel project environment variables.

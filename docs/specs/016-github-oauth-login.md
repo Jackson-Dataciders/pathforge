@@ -1,5 +1,5 @@
 ---
-status: planned
+status: done
 priority: high
 created: "2026-10-20"
 work_item: ""
@@ -49,11 +49,11 @@ instead of guessing, and do not start implementing until it is answered.
 
 ## Acceptance criteria
 <!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
-- [ ] `signIn` callback tests pass for allowed id, other id, and missing configuration.
-- [ ] `requireOwner` / `withOwner` tests pass, including a 401 response without a session.
-- [ ] `e2e/auth.spec.ts` passes.
-- [ ] Manual: signing in with the allowed account on the deployed site shows the avatar; signing in with another GitHub account shows "Access denied".
-- [ ] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass (build works without auth env vars set).
+- [x] `signIn` callback tests pass for allowed id, other id, and missing configuration.
+- [x] `requireOwner` / `withOwner` tests pass, including a 401 response without a session.
+- [x] `e2e/auth.spec.ts` passes.
+- [x] Manual: signing in with the allowed account on the deployed site shows the avatar; signing in with another GitHub account shows "Access denied".
+- [x] `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` pass (build works without auth env vars set).
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

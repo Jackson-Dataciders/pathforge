@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { AuthSessionProvider } from "@/components/auth/session-provider";
 import { SiteHeader } from "@/components/site-header";
 import { ColorThemeProvider } from "@/theme/color-theme";
 import { NoFlashScript } from "@/theme/no-flash-script";
@@ -18,17 +19,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <NoFlashScript />
       </head>
       <body className="flex min-h-screen flex-col antialiased">
-        <ThemeProvider>
-          <ColorThemeProvider>
-            <SiteHeader />
-            <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
-              {children}
-            </main>
-            <footer className="border-t border-border px-6 py-5 text-sm text-muted">
-              <div className="mx-auto max-w-5xl">Pathforge</div>
-            </footer>
-          </ColorThemeProvider>
-        </ThemeProvider>
+        <AuthSessionProvider>
+          <ThemeProvider>
+            <ColorThemeProvider>
+              <SiteHeader />
+              <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">
+                {children}
+              </main>
+              <footer className="border-t border-border px-6 py-5 text-sm text-muted">
+                <div className="mx-auto max-w-5xl">Pathforge</div>
+              </footer>
+            </ColorThemeProvider>
+          </ThemeProvider>
+        </AuthSessionProvider>
       </body>
     </html>
   );
